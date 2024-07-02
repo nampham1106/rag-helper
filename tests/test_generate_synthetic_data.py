@@ -14,7 +14,7 @@ Giám đốc trung tâm Chẩn đoán trước sinh - Bệnh viện Phụ Sản 
 ]
 
 async def test():
-    gemini = GeminiHelper("AIzaSyC2GxQOE5Nl-SgrAdUvjsnGVTCe0nM9c5w")
+    gemini = GeminiHelper("")
     gendata = SyntheticData(gemini=gemini)
     result = await gendata.generate_question_batch(chunks, 1)
     print(result)

@@ -3,7 +3,7 @@ import pandas as pd
 from tabulate import tabulate
 from rag_helper.db import get_table
 from rag_helper.data import get_labels
-from rag_helper.models import QueryItem, FormatType
+from rag_helper.models import MarcoQuery, FormatType
 from rag_helper.query import fts_search, vector_search
 from rag_helper.eval import score_retrieval, calculate_precision, calculate_recall, calculate_reciprocal_rank
 from rag_helper.embeddings import EmbeddingModel
@@ -16,8 +16,8 @@ table = get_table(db, "ms_marco")
 
 queries = get_labels('./data/queries_single_label.jsonl')[:30]
 queries = [
-    QueryItem(
-        **{"query": item["query"], "selected_chunk_ids": [item["selected_chunk_ids"]]}
+    MarcoQuery(
+        **{"query": item["query"], "selected_chunk_ids": item["selected_chunk_ids"]}
     )
     for item in queries
 ]
